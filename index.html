@@ -26,7 +26,7 @@
 
         header {
             height: 50vh;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://dynamic-media-assets.thrillophilia.com/thrillophilia/assets/images/activity/j0b8i4b0g5c8o8z7m9u3y2a1r1_1567175204_Steel_Plant_Tour_2.jpg?auto=format&fit=crop&q=80&w=1500');
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1500');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -39,35 +39,32 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
 
-        /* ОБНОВЛЕННАЯ ГАЛЕРЕЯ: КРУПНЕЕ И ИНТЕРАКТИВНЕЕ */
+        /* ГАЛЕРЕЯ: ОРИГИНАЛЬНЫЕ ПРОПОРЦИИ */
         .plant-gallery {
-            display: grid;
-            /* Увеличили минимальный размер карточки с 280px до 350px */
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px; /* Немного увеличили отступ */
+            columns: 2; /* Раскладка как в Pinterest, чтобы сохранить разные пропорции */
+            column-gap: 20px;
             margin-top: 30px;
         }
 
         .plant-gallery img {
             width: 100%;
-            height: 280px; /* Увеличили высоту с 220px до 280px */
-            object-fit: cover;
+            margin-bottom: 20px;
+            display: block;
             border-radius: 8px;
             border: 1px solid var(--border);
-            /* Добавили grayscale для интеграции в темную тему по умолчанию */
-            filter: grayscale(0.5) contrast(0.9);
-            transition: 0.5s ease-in-out; /* Плавный переход */
+            filter: brightness(0.8) contrast(1.1);
+            transition: 0.5s ease-in-out;
+            /* Убрали фиксированную высоту, чтобы сохранить оригинал */
+            height: auto;
         }
 
-        /* ЭФФЕКТ НАВЕДЕНИЯ: "ПОЧИНКА" И ЗУМ */
         .plant-gallery img:hover {
             border-color: var(--accent);
-            transform: scale(1.05); /* Легкое увеличение */
-            filter: grayscale(0) contrast(1) brightness(1.1); /* Убираем серость, добавляем яркость */
-            box-shadow: 0 10px 20px rgba(255, 77, 0, 0.2); /* Тень акцентного цвета */
+            transform: scale(1.02);
+            filter: brightness(1.1) contrast(1);
+            box-shadow: 0 10px 30px rgba(255, 77, 0, 0.3);
         }
 
-        /* Остальные стили */
         .deep-compare {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -124,7 +121,7 @@
 
         @media (max-width: 900px) {
             .plant-grid { grid-template-columns: 1fr; }
-            .plant-gallery { grid-template-columns: 1fr; } /* На мобильных в одну колонку */
+            .plant-gallery { columns: 1; }
         }
     </style>
 </head>
@@ -132,7 +129,7 @@
 
 <header>
     <h1 style="font-size: 3rem; margin: 10px 0;">ВЫБОР ЖЕЛЕЗНОГО ПУТИ</h1>
-    <p style="max-width: 700px; color: var(--text-dim);">Детальный разбор трех главных промышленных дестинаций России: от эстетики Выксы до мощи Магнитки</p>
+    <p style="max-width: 700px; color: var(--text-dim);">Детальный разбор трех главных промышленных дестинаций России</p>
 </header>
 
 <div class="container">
@@ -147,15 +144,15 @@
     <div id="compare" class="deep-compare">
         <div class="compare-card">
             <h3>Выкса: Дизайн и Уют</h3>
-            <p>Если вы боитесь «грязного» производства — вам сюда. Выкса ломает стереотипы о заводе как о мрачном месте. Это самый «цивилизованный» тур, где промышленность переплетена с искусством. Идеально для поездки на выходные без лишнего стресса.</p>
+            <p>Если вы любите современный дизайн и комфорт — выбирайте Выксу. Это самая простая логистика из Москвы (утром уехал, вечером вернулся или остался на одну ночь). Там нет «тяжелой» суровости, зато много красоты.</p>
         </div>
         <div class="compare-card">
             <h3>ММК: Шок и Трепет</h3>
-            <p>Для тех, кто хочет увидеть «настоящую» сталь. Здесь не до декораций — масштаб комбината подавляет и восхищает одновременно. Стоять у доменной печи и чувствовать кожей жар раскаленного металла — этот опыт невозможно заменить никакими VR-туры.</p>
+            <p>Если вы хотите настоящий промышленный шок — это Магнитогорск. Когда вы стоите у доменной печи ММК, вы кожей чувствуете жар и мощь. Это самая дорогая поездка (из-за перелета), но самая впечатляющая по масштабам.</p>
         </div>
         <div class="compare-card">
             <h3>ЕВРАЗ: Инженерия</h3>
-            <p>Выбор тех, кто любит докапываться до сути вещей. Контраст между демидовским заводом-музеем и современной «цифровой» домной дает лучшее понимание прогресса. Это путешествие сквозь века: от деревянных плотин до ИТ-мониторинга плавки.</p>
+            <p>Если вам интересна история инженерии — однозначно Нижний Тагил. Там вы увидите контраст между ржавыми конструкциями XVIII века (музей-завод) и стерильными пультами управления современной домны.</p>
         </div>
     </div>
 
@@ -163,57 +160,39 @@
         <div class="plant-grid">
             <div class="plant-content">
                 <h2>ОМК ВЫКСА</h2>
-                <p><b>Логистика из Москвы:</b> Поезд до ст. Навашино (4-5ч, 3000-4500₽) + такси 30 мин (~1000₽). Самый доступный вариант: можно обернуться за один день или с комфортной ночевкой.</p>
+                <p><b>Логистика:</b> Поезд до ст. Навашино + такси. Быстро, просто, эстетично.</p>
                 <div class="logistics-box">
-                    <b>Вердикт:</b> Максимум эстетики и минимум суровости. Подходит для семейного выезда или любителей дизайна.
-                </div>
-                <div class="city-extras">
-                    <h4>В городе кроме завода:</h4>
-                    <ul>
-                        <li><b>Арт-охота:</b> Поиск скрытых муралов мировых звезд стрит-арта.</li>
-                        <li><b>Парки:</b> Набережные Выксы входят в топ лучших в РФ.</li>
-                        <li><b>Усадьба:</b> Дом-музей Баташевых — обязательный пункт.</li>
-                    </ul>
+                    <b>Вердикт:</b> Максимум комфорта. Идеально для первого знакомства с промтуризмом.
                 </div>
             </div>
             <div class="plant-media">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2288.924847427181!2d42.1528379!3d55.3258057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414e2a97f2003ae3%3A0x4a21d09d9aa8c8ca!2z0JLQu9C60YHRg9C90YHQutC40Lkg0LzQtdGC0LDQu9C70YPRgNCz0LjRh9C10YHQutC40Lkg0LfQsNCy0L7QtA!5e0!3m2!1sru!2sru!4v1710672000000!5m2!1sru!2sru"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2315.688176884844!2d42.179377!3d55.321865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414b4af2f2003c23%3A0x4a21d09dd9a828cb!2z0JLQu9C60YHR0L3RgdC60LjQuSDQvNC10YLQsNC70LvRg9GA0LPQuNGH0LXRgdC60LjQuSDQt9Cw0LLQvtC0!5e0!3m2!1sru!2sru!4v1710000000000!5m2!1sru!2sru"></iframe>
             </div>
         </div>
         <div class="plant-gallery container">
-            <img src="https://architime.ru/specials/shukhov/5.jpg" alt="Стан 5000 ОМК Выкса">
-            <img src="https://vyksa-fest.com/images/pages/murom/bulatov.jpg" alt="Мурал Эволюция на ОМК Выкса">
-            <img src="https://www.metalinfo.ru/ru/news/original/124706_d58b.jpg" alt="Производство колес ОМК Выкса">
-            <img src="https://www.nnov.kp.ru/share/i/12/11267595/wr-1200.webp" alt="Шуховская башня в Выксе">
+            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800" alt="Цех завода">
+            <img src="https://images.unsplash.com/photo-1565611093153-73d744837482?q=80&w=800" alt="Индустриальное искусство">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" alt="Современные технологии">
         </div>
     </div>
 
     <div id="mmk" class="plant-block">
         <div class="plant-grid">
             <div class="plant-media">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2345.21323456789!2d59.0567!3d53.4165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43d3258f78b7f8df%3A0x1417277b17f9000!2z0J_QkNCeIMKr0JzQsNCz0L3QuNGC0L7Qs9C-0YDRgdC60LjQuSDQvNC10YLQsNC70LvRg9GA0LPQuNGH0LXRgdC60LjQuSDQutC_0LzQsdC40L3QsNGCwrs!5e0!3m2!1sru!2sru!4v1710672000000!5m2!1sru!2sru"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.123456789!2d59.043!3d53.421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43d525ca528bc413%3A0x19ca42410f4357b6!2z0JzQnNCa!5e0!3m2!1sru!2sru!4v1710000000000!5m2!1sru!2sru"></iframe>
             </div>
             <div class="plant-content">
                 <h2>ММК МАГНИТОГОРСК</h2>
-                <p><b>Логистика из Москвы:</b> Прямой авиаперелет 2.5ч (от 12 000₽ туда-обратно). Поезд идет 30 часов, что делает авиацию единственным разумным выбором для короткого трипа.</p>
+                <p><b>Логистика:</b> Самолет из Москвы. Полет в самое сердце металлургии.</p>
                 <div class="logistics-box">
-                    <b>Вердикт:</b> Дорого из-за перелета, но впечатления на всю жизнь. Самый большой визуальный масштаб в стране.
-                </div>
-                <div class="city-extras">
-                    <h4>В городе кроме завода:</h4>
-                    <ul>
-                        <li><b>Тыл-Фронту:</b> Масштаб памятника не уступает Мамаеву Кургану.</li>
-                        <li><b>Притяжение:</b> Огромный парк, не имеющий аналогов на Урале.</li>
-                        <li><b>Горнолыжки:</b> Рядом Банное и Абзаково (в сезон).</li>
-                    </ul>
+                    <b>Вердикт:</b> Суровая мощь. Для тех, кто хочет увидеть рождение металла в огне.
                 </div>
             </div>
         </div>
         <div class="plant-gallery container">
-            <img src="https://img.tourister.ru/files/2/2/2/8/5/0/0/3/original.jpg" alt="Экскурсия ММК Магнитогорск Домна">
-            <img src="https://u74.ru/files/news/42551/original/9611.jpg" alt="Прокатный стан ММК">
-            <img src="https://ural-meridian.ru/wp-content/uploads/2021/07/mmk-001.jpg" alt="Панорама ММК с моста Европа-Азия">
-            <img src="https://chelrest.ru/wp-content/uploads/2019/12/dsc02738.jpg" alt="Туристы на экскурсии ММК">
+            <img src="https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?q=80&w=800" alt="Доменная печь">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800" alt="Раскаленный металл">
+            <img src="https://images.unsplash.com/photo-1444492417251-9c839d058ea2?q=80&w=800" alt="Масштабы ММК">
         </div>
     </div>
 
@@ -221,35 +200,26 @@
         <div class="plant-grid">
             <div class="plant-content">
                 <h2>ЕВРАЗ НТМК</h2>
-                <p><b>Логистика из Москвы:</b> Перелет до Екатеринбурга (от 8 000₽) + 2 часа на «Ласточке» (650₽). Очень удобная связка, позволяющая захватить оба города.</p>
+                <p><b>Логистика:</b> Самолет до Екатеринбурга + Ласточка. Путь через историю.</p>
                 <div class="logistics-box">
-                    <b>Вердикт:</b> Лучшее соотношение «цена/качество». Идеально для фанатов истории техники.
-                </div>
-                <div class="city-extras">
-                    <h4>В городе кроме завода:</h4>
-                    <ul>
-                        <li><b>Завод-музей:</b> Уникальная возможность погулять среди цехов XIX века.</li>
-                        <li><b>Лисья гора:</b> Лучший панорамный вид на индустриальный Урал.</li>
-                        <li><b>Музей подносов:</b> Знаменитая нижнетагильская роспись.</li>
-                    </ul>
+                    <b>Вердикт:</b> Образовательный трип. Погружение в историю инженерии России.
                 </div>
             </div>
             <div class="plant-media">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2177.56789123456!2d60.0104!3d57.9105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43c27b32230975d9%3A0xc6419010493e8b8f!2z0JXQktCg0JDQlyDQndCi0JzQmg!5e0!3m2!1sru!2sru!4v1710672000000!5m2!1sru!2sru"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2165.789!2d59.954!3d57.914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43eb64f5f5f5f5f5%3A0x5f5f5f5f5f5f5f5f!2z0JXQktCg0JDQlyDQndCi0JzQmg!5e0!3m2!1sru!2sru!4v1710000000000!5m2!1sru!2sru"></iframe>
             </div>
         </div>
         <div class="plant-gallery container">
-            <img src="https://ura.news/images/publications/017/027/017027_Zavod_Evraz_NTMK_promturizm_Nizhnij_Tagil_Ural_promishlennij_turizm_2000x1333_17027.jpg" alt="Домна Россиянка ЕВРАЗ НТМК">
-            <img src="https://ural-meridian.ru/wp-content/uploads/2022/10/evraz-ntmk.jpg" alt="Производство колес ЕВРАЗ НТМК">
-            <img src="https://mstrok.ru/sites/default/files/styles/image_648/public/news/2021-12/evraz-ntmk.jpg?itok=z6Fq4o9w" alt="Действующий комбинат НТМК">
-            <img src="https://cdn.pervo.ru/uploads/posts/2021-06/1622798604_tagil_3.jpeg" alt="Исторический завод-музей в Тагиле">
+            <img src="https://images.unsplash.com/photo-1565624939567-8c098f8dd96c?q=80&w=800" alt="Старая индустрия">
+            <img src="https://images.unsplash.com/photo-1516937622178-74558372e3b8?q=80&w=800" alt="Завод-музей">
+            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=800" alt="Современная домна">
         </div>
     </div>
 
 </div>
 
 <footer style="padding: 40px; text-align: center; color: var(--text-dim); border-top: 1px solid var(--border);">
-    <p>© 2026 Гайд по индустриальному туризму. Не забудьте забронировать тур за 2 недели!</p>
+    <p>© 2026 Гайд по индустриальному туризму. Больше, чем просто экскурсия.</p>
 </footer>
 
 </body>
