@@ -25,7 +25,8 @@
         }
 
         header {
-            height: 50vh;
+            min-height: 40vh;
+            padding: 40px 20px;
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1500');
             background-size: cover;
             background-position: center;
@@ -37,80 +38,117 @@
             border-bottom: 3px solid var(--accent);
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        header h1 {
+            font-size: clamp(2rem, 8vw, 3rem);
+            margin: 10px 0;
+            font-weight: 900;
+        }
+
+        header p {
+            max-width: 700px;
+            color: var(--text-dim);
+            font-size: clamp(0.9rem, 4vw, 1.1rem);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
         .deep-compare {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            margin: 40px 0 80px;
+            margin: 20px 0 60px;
         }
 
         .compare-card {
             background: var(--surface);
-            padding: 30px;
+            padding: 25px;
             border-radius: 12px;
             border-top: 4px solid var(--accent);
         }
 
-        .compare-card h3 { color: var(--accent); margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
-        .compare-card p { font-size: 0.95rem; color: var(--text-dim); }
+        .compare-card h3 { color: var(--accent); margin-top: 0; text-transform: uppercase; letter-spacing: 1px; font-size: 1.2rem; }
+        .compare-card p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0; }
 
         .plant-block {
             background: var(--surface);
             border-radius: 16px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             overflow: hidden;
             border: 1px solid var(--border);
         }
 
         .plant-grid { display: grid; grid-template-columns: 1fr 1fr; }
-        .plant-content { padding: 40px; }
-        .plant-media { background: #222; min-height: 400px; position: relative; }
+        .plant-content { padding: 30px; }
+        .plant-media { background: #222; min-height: 300px; position: relative; width: 100%; }
 
-        h2 { font-size: 2.5rem; margin-top: 0; color: var(--accent); }
+        h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); margin-top: 0; color: var(--accent); }
+        
         .logistics-box {
             background: rgba(255, 77, 0, 0.05);
-            padding: 25px;
+            padding: 20px;
             border-radius: 8px;
             border-left: 4px solid var(--accent);
             margin: 20px 0;
+            font-size: 0.95rem;
         }
 
         .city-extras {
             background: #252525;
-            padding: 25px;
+            padding: 20px;
             border-radius: 8px;
             margin-top: 20px;
         }
 
-        .city-extras h4 { margin-top: 0; color: var(--accent); }
+        .city-extras h4 { margin-top: 0; color: var(--accent); font-size: 1.1rem; }
+        .city-extras ul { padding-left: 20px; margin-bottom: 0; }
+        .city-extras li { font-size: 0.9rem; margin-bottom: 8px; }
 
-        iframe { width: 100%; height: 100%; border: none; filter: grayscale(1) invert(0.9); }
+        iframe { width: 100%; height: 100%; border: none; filter: grayscale(1) invert(0.9); display: block; }
 
-        .nav-links { display: flex; gap: 20px; margin-bottom: 40px; justify-content: center; flex-wrap: wrap; }
-        .nav-links a { color: var(--text); text-decoration: none; border: 1px solid var(--border); padding: 10px 20px; border-radius: 40px; transition: 0.3s; }
+        .nav-links { display: flex; gap: 10px; margin-bottom: 30px; justify-content: center; flex-wrap: wrap; }
+        .nav-links a { 
+            color: var(--text); 
+            text-decoration: none; 
+            border: 1px solid var(--border); 
+            padding: 8px 16px; 
+            border-radius: 40px; 
+            transition: 0.3s; 
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.05);
+        }
         .nav-links a:hover { background: var(--accent); border-color: var(--accent); }
 
         @media (max-width: 900px) {
             .plant-grid { grid-template-columns: 1fr; }
+            .plant-media { order: 2; min-height: 350px; }
+            .plant-content { order: 1; padding: 25px; }
+            .container { padding: 15px; }
+            .deep-compare { margin-bottom: 40px; }
+        }
+
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 style="font-size: 3rem; margin: 10px 0;">ВЫБОР ЖЕЛЕЗНОГО ПУТИ</h1>
-    <p style="max-width: 700px; color: var(--text-dim);">Детальный разбор трех главных промышленных дестинаций России: от эстетики Выксы до мощи Магнитки</p>
+    <h1>ВЫБОР ЖЕЛЕЗНОГО ПУТИ</h1>
+    <p>Детальный разбор трех главных промышленных дестинаций России: от эстетики Выксы до мощи Магнитки</p>
 </header>
 
 <div class="container">
     
     <div class="nav-links">
-        <a href="#compare">Почему один, а не другой?</a>
-        <a href="#vyksa">Выкса (ОМК)</a>
-        <a href="#mmk">Магнитогорск (ММК)</a>
-        <a href="#evraz">Нижний Тагил (ЕВРАЗ)</a>
+        <a href="#compare">Сравнение</a>
+        <a href="#vyksa">Выкса</a>
+        <a href="#mmk">Магнитогорск</a>
+        <a href="#evraz">Нижний Тагил</a>
     </div>
 
     <div id="compare" class="deep-compare">
@@ -132,21 +170,21 @@
         <div class="plant-grid">
             <div class="plant-content">
                 <h2>ОМК ВЫКСА</h2>
-                <p><b>Логистика из Москвы:</b> Поезд до ст. Навашино (4-5ч, 3000-4500₽) + такси 30 мин (~1000₽). Самый доступный вариант: можно обернуться за один день или с комфортной ночевкой.</p>
+                <p><b>Логистика:</b> Поезд до ст. Навашино (4-5ч, 3000-4500₽) + такси 30 мин (~1000₽).</p>
                 <div class="logistics-box">
-                    <b>Подробный вердикт:</b> Выкса предлагает уникальный формат «софт-металлургии», где грохот цехов соседствует с мировым стрит-артом. Здесь вы увидите, как гигантские трубы производятся в окружении муралов площадью в несколько футбольных полей. Это лучший выбор для тех, кто ценит эстетику и комфорт: экскурсия организована безупречно, маршруты понятны, а после завода можно выпить отличный кофе в историческом центре. Поездка в Выксу — это не столько про тяжелый труд, сколько про то, как промышленность может стать частью современной культуры и экологичного городского пространства.
+                    <b>Подробный вердикт:</b> Выкса предлагает уникальный формат «софт-металлургии», где грохот цехов соседствует с мировым стрит-артом. Здесь вы увидите, как гигантские трубы производятся в окружении муралов площадью в несколько футбольных полей. Это лучший выбор для тех, кто ценит эстетику и комфорт: экскурсия организована безупречно, маршруты понятны, а после завода можно выпить отличный кофе в историческом центре.
                 </div>
                 <div class="city-extras">
                     <h4>В городе кроме завода:</h4>
                     <ul>
-                        <li><b>Арт-охота:</b> Поиск скрытых муралов мировых звезд стрит-арта.</li>
-                        <li><b>Парки:</b> Набережные Выксы входят в топ лучших в РФ.</li>
-                        <li><b>Усадьба:</b> Дом-музей Баташевых — обязательный пункт.</li>
+                        <li><b>Арт-охота:</b> Поиск муралов стрит-арта.</li>
+                        <li><b>Парки:</b> Лучшие набережные в РФ.</li>
+                        <li><b>Усадьба:</b> Музей Баташевых.</li>
                     </ul>
                 </div>
             </div>
             <div class="plant-media">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11364.671342676063!2d42.1764724!3d55.3204961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414f052565656565%3A0x6565656565656565!2z0JLQu9C60YHQuNC90YHQutC40Lkg0LzQtdGC0LDQu9C70YPRgNCz0LjRh9C10YHQutC40Lkg0LfQsNCy0L7QtA!5e0!3m2!1sru!2sru!4v1710672000000!5m2!1sru!2sru"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2315.655974052349!2d42.1764327!3d55.3184654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41496a77764d7881%3A0x6b60e64387693630!2z0JLQu9Cw0LTQuNC80LjRgNGB0LrQuNC5INGC0YDQsNC60YIsIDgsINCS0YvQutGB0LAsIE5pemsueSBOb3Znb3JvZCBPYmxhc3QsIDYwNzA2MA!5e0!3m2!1sru!2sru!4v1710674500000!5m2!1sru!2sru"></iframe>
             </div>
         </div>
     </div>
@@ -154,20 +192,20 @@
     <div id="mmk" class="plant-block">
         <div class="plant-grid">
             <div class="plant-media">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35467.43306634713!2d59.0435967!3d53.4111306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43d12bc555555555%3A0x5555555555555555!2z0JzQsNCz0L3QuNGC0L7Qs9C-0YDRgdC60LjQuCDQvNC10YLQsNC70YPRgNCz0LjRh9C10YHQutC40Lkg0LrQvtC80LHQuNC90LDRgg!5e0!3m2!1sru!2sru!4v1710672000000!5m2!1sru!2sru"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2511.45892548784!2d59.0594363!3d53.4217148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43d080ec327f2771%3A0xe9f75f606a4b1368!2z0YPQuy4g0JrQuNGA0L7QstCwLCA3MCwg0JzQsNCz0L3QuNGC0L7Qs9C-0YDRgdC6LCDQp9C10LvRj9Cx0LjQvdGB0LrQsNGPINC-0LHQuy4sIDQ1NTAwMA!5e0!3m2!1sru!2sru!4v1710674600000!5m2!1sru!2sru"></iframe>
             </div>
             <div class="plant-content">
                 <h2>ММК МАГНИТОГОРСК</h2>
-                <p><b>Логистика из Москвы:</b> Прямой авиаперелет 2.5ч (от 12 000₽ туда-обратно). Поезд идет 30 часов, что делает авиацию единственным разумным выбором для короткого трипа.</p>
+                <p><b>Логистика:</b> Авиа 2.5ч (от 12 000₽) или поезд 30ч.</p>
                 <div class="logistics-box">
-                    <b>Подробный вердикт:</b> Магнитка — это квинтэссенция советской и российской индустриальной мощи, место, где масштабы заставляют затаить дыхание. Здесь вы увидите легендарный «стан-5000» и почувствуете настоящий жар доменной печи, наблюдая за огненными реками чугуна. Это тур для «сильных духом», готовых к серьезным расстояниям (комбинат больше многих европейских городов) и суровым пейзажам. Визит на ММК дает четкое понимание фразы «стальной характер»: это честное, шумное и невероятно масштабное производство, которое оставляет ощущение сопричастности к чему-то по-настоящему великому и незыблемому.
+                    <b>Подробный вердикт:</b> Магнитка — это квинтэссенция российской индустриальной мощи. Здесь вы почувствуете настоящий жар доменной печи, наблюдая за огненными реками чугуна. Это тур для «сильных духом», готовых к серьезным расстояниям и суровым пейзажам. Визит на ММК дает четкое понимание «стального характера»: это честное и невероятно масштабное производство.
                 </div>
                 <div class="city-extras">
                     <h4>В городе кроме завода:</h4>
                     <ul>
-                        <li><b>Тыл-Фронту:</b> Масштаб памятника не уступает Мамаеву Кургану.</li>
-                        <li><b>Притяжение:</b> Огромный парк, не имеющий аналогов на Урале.</li>
-                        <li><b>Горнолыжки:</b> Рядом Банное и Абзаково (в сезон).</li>
+                        <li><b>Тыл-Фронту:</b> Огромный монумент.</li>
+                        <li><b>Притяжение:</b> Мультипарк мирового уровня.</li>
+                        <li><b>Горнолыжки:</b> Банное и Абзаково.</li>
                     </ul>
                 </div>
             </div>
@@ -178,29 +216,29 @@
         <div class="plant-grid">
             <div class="plant-content">
                 <h2>ЕВРАЗ НТМК</h2>
-                <p><b>Логистика из Москвы:</b> Перелет до Екатеринбурга (от 8 000₽) + 2 часа на «Ласточке» (650₽). Очень удобная связка, позволяющая захватить оба города.</p>
+                <p><b>Логистика:</b> Авиа до Екб (от 8 000₽) + «Ласточка» 2ч (650₽).</p>
                 <div class="logistics-box">
-                    <b>Подробный вердикт:</b> Нижний Тагил — это живой учебник истории металлургии, где прошлое и будущее разделяет всего пара километров. Главная ценность тура заключается в поразительном контрасте: вы можете утром бродить среди заброшенных, но величественных домен XIX века в старом заводе-музее Демидовых, а после обеда наблюдать за полностью автоматизированным процессом в современном цехе ЕВРАЗа. Это самая интеллектуальная экскурсия, которая фокусируется на эволюции инженерной мысли. Тагил не пытается казаться модным или декоративным — он подкупает своей аутентичностью, профессионализмом гидов и возможностью проследить путь железа от деревянного колеса до цифрового двойника печи.
+                    <b>Подробный вердикт:</b> Нижний Тагил — живой учебник истории, где прошлое и будущее разделяет пара километров. Главная ценность — контраст: утром вы в старом заводе-музее XVIII века, а днем на полностью автоматизированном производстве. Это интеллектуальная экскурсия об эволюции инженерной мысли, подкупающая своей аутентичностью.
                 </div>
                 <div class="city-extras">
                     <h4>В городе кроме завода:</h4>
                     <ul>
-                        <li><b>Завод-музей:</b> Уникальная возможность погулять среди цехов XIX века.</li>
-                        <li><b>Лисья гора:</b> Лучший панорамный вид на индустриальный Урал.</li>
-                        <li><b>Музей подносов:</b> Знаменитая нижнетагильская роспись.</li>
+                        <li><b>Завод-музей:</b> Индустриальный артефакт XIX века.</li>
+                        <li><b>Лисья гора:</b> Панорамный вид на Урал.</li>
+                        <li><b>Подносы:</b> Местная уникальная роспись.</li>
                     </ul>
                 </div>
             </div>
             <div class="plant-media">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10842.34567890123!2d59.954321!3d57.912345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43e06aaaaaaa%3A0xbbbbbbbbbbbb!2z0JXQktCg0JDQlyDQndCi0JzQmg!5e0!3m2!1sru!2sru!4v1710672000000!5m2!1sru!2sru"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2182.0125439811494!2d59.9572123!3d57.9250567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43ebf8e4e9309009%3A0xe67c0628e833405!2z0YPQuy4g0JzQtdGC0LDQu9C70YPRgNCz0L7QsiwgIDIsINCd0LjQttC90LjQuSBU0LDQs9C40LssINCh0LLQtdGA0LTQu9C-0LLRgdC60DRYINC-0LHQuy4sIDYyMjAwMA!5e0!3m2!1sru!2sru!4v1710674700000!5m2!1sru!2sru"></iframe>
             </div>
         </div>
     </div>
 
 </div>
 
-<footer style="padding: 40px; text-align: center; color: var(--text-dim); border-top: 1px solid var(--border);">
-    <p>© 2026 Гайд по индустриальному туризму. Не забудьте забронировать тур за 2 недели!</p>
+<footer>
+    <p>© 2026 Гайд по индустриальному туризму. Рекомендуется бронировать за 2 недели.</p>
 </footer>
 
 </body>
