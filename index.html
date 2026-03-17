@@ -39,27 +39,35 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
 
+        /* ОБНОВЛЕННАЯ ГАЛЕРЕЯ: КРУПНЕЕ И ИНТЕРАКТИВНЕЕ */
         .plant-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
+            /* Увеличили минимальный размер карточки с 280px до 350px */
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px; /* Немного увеличили отступ */
             margin-top: 30px;
         }
 
         .plant-gallery img {
             width: 100%;
-            height: 220px;
+            height: 280px; /* Увеличили высоту с 220px до 280px */
             object-fit: cover;
             border-radius: 8px;
             border: 1px solid var(--border);
-            transition: 0.3s;
+            /* Добавили grayscale для интеграции в темную тему по умолчанию */
+            filter: grayscale(0.5) contrast(0.9);
+            transition: 0.5s ease-in-out; /* Плавный переход */
         }
 
+        /* ЭФФЕКТ НАВЕДЕНИЯ: "ПОЧИНКА" И ЗУМ */
         .plant-gallery img:hover {
             border-color: var(--accent);
-            transform: scale(1.03);
+            transform: scale(1.05); /* Легкое увеличение */
+            filter: grayscale(0) contrast(1) brightness(1.1); /* Убираем серость, добавляем яркость */
+            box-shadow: 0 10px 20px rgba(255, 77, 0, 0.2); /* Тень акцентного цвета */
         }
 
+        /* Остальные стили */
         .deep-compare {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -116,6 +124,7 @@
 
         @media (max-width: 900px) {
             .plant-grid { grid-template-columns: 1fr; }
+            .plant-gallery { grid-template-columns: 1fr; } /* На мобильных в одну колонку */
         }
     </style>
 </head>
@@ -142,7 +151,7 @@
         </div>
         <div class="compare-card">
             <h3>ММК: Шок и Трепет</h3>
-            <p>Для тех, кто хочет увидеть «настоящую» сталь. Здесь не до декораций — масштаб комбината подавляет и восхищает одновременно. Стоять у доменной печи и чувствовать кожей жар раскаленного металла — этот опыт невозможно заменить никакими VR-турами.</p>
+            <p>Для тех, кто хочет увидеть «настоящую» сталь. Здесь не до декораций — масштаб комбината подавляет и восхищает одновременно. Стоять у доменной печи и чувствовать кожей жар раскаленного металла — этот опыт невозможно заменить никакими VR-туры.</p>
         </div>
         <div class="compare-card">
             <h3>ЕВРАЗ: Инженерия</h3>
