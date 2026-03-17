@@ -25,10 +25,8 @@
         }
 
         header {
-            height: 50vh;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1500');
-            background-size: cover;
-            background-position: center;
+            height: 40vh;
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9));
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -38,32 +36,6 @@
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-
-        /* ГАЛЕРЕЯ: ОРИГИНАЛЬНЫЕ ПРОПОРЦИИ */
-        .plant-gallery {
-            columns: 2; /* Раскладка как в Pinterest, чтобы сохранить разные пропорции */
-            column-gap: 20px;
-            margin-top: 30px;
-        }
-
-        .plant-gallery img {
-            width: 100%;
-            margin-bottom: 20px;
-            display: block;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            filter: brightness(0.8) contrast(1.1);
-            transition: 0.5s ease-in-out;
-            /* Убрали фиксированную высоту, чтобы сохранить оригинал */
-            height: auto;
-        }
-
-        .plant-gallery img:hover {
-            border-color: var(--accent);
-            transform: scale(1.02);
-            filter: brightness(1.1) contrast(1);
-            box-shadow: 0 10px 30px rgba(255, 77, 0, 0.3);
-        }
 
         .deep-compare {
             display: grid;
@@ -77,6 +49,9 @@
             padding: 30px;
             border-radius: 12px;
             border-top: 4px solid var(--accent);
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         .compare-card h3 { color: var(--accent); margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
@@ -88,11 +63,10 @@
             margin-bottom: 60px;
             overflow: hidden;
             border: 1px solid var(--border);
-            padding-bottom: 40px;
         }
 
         .plant-grid { display: grid; grid-template-columns: 1fr 1fr; }
-        .plant-content { padding: 40px 40px 0 40px; }
+        .plant-content { padding: 40px; }
         .plant-media { background: #222; min-height: 400px; position: relative; }
 
         h2 { font-size: 2.5rem; margin-top: 0; color: var(--accent); }
@@ -121,7 +95,6 @@
 
         @media (max-width: 900px) {
             .plant-grid { grid-template-columns: 1fr; }
-            .plant-gallery { columns: 1; }
         }
     </style>
 </head>
@@ -129,7 +102,7 @@
 
 <header>
     <h1 style="font-size: 3rem; margin: 10px 0;">ВЫБОР ЖЕЛЕЗНОГО ПУТИ</h1>
-    <p style="max-width: 700px; color: var(--text-dim);">Детальный разбор трех главных промышленных дестинаций России</p>
+    <p style="max-width: 700px; color: var(--text-dim);">Гайд по главным индустриальным дестинациям России: сравнение, логистика, карты</p>
 </header>
 
 <div class="container">
@@ -144,15 +117,15 @@
     <div id="compare" class="deep-compare">
         <div class="compare-card">
             <h3>Выкса: Дизайн и Уют</h3>
-            <p>Если вы любите современный дизайн и комфорт — выбирайте Выксу. Это самая простая логистика из Москвы (утром уехал, вечером вернулся или остался на одну ночь). Там нет «тяжелой» суровости, зато много красоты.</p>
+            <p>Если вы любите современный дизайн и комфорт — выбирайте Выксу. Это самая простая логистика из Москвы (утром уехал, вечером вернулся). Минимум промышленной суровости и максимум красоты.</p>
         </div>
         <div class="compare-card">
             <h3>ММК: Шок и Трепет</h3>
-            <p>Если вы хотите настоящий промышленный шок — это Магнитогорск. Когда вы стоите у доменной печи ММК, вы кожей чувствуете жар и мощь. Это самая дорогая поездка (из-за перелета), но самая впечатляющая по масштабам.</p>
+            <p>Для тех, кто ищет настоящий промышленный шок. Ощутите кожей жар и мощь доменных печей ММК. Самая впечатляющая поездка по своим масштабам, хоть и самая дорогая из-за перелета.</p>
         </div>
         <div class="compare-card">
             <h3>ЕВРАЗ: Инженерия</h3>
-            <p>Если вам интересна история инженерии — однозначно Нижний Тагил. Там вы увидите контраст между ржавыми конструкциями XVIII века (музей-завод) и стерильными пультами управления современной домны.</p>
+            <p>Выбор фанатов истории инженерии. Уникальный контраст между музейными конструкциями XVIII века и стерильными пультами управления современных доменных печей.</p>
         </div>
     </div>
 
@@ -160,39 +133,45 @@
         <div class="plant-grid">
             <div class="plant-content">
                 <h2>ОМК ВЫКСА</h2>
-                <p><b>Логистика:</b> Поезд до ст. Навашино + такси. Быстро, просто, эстетично.</p>
+                <p><b>Логистика из Москвы:</b> Поезд до ст. Навашино (4-5ч) + такси 30 мин. Идеально для трипа выходного дня.</p>
                 <div class="logistics-box">
-                    <b>Вердикт:</b> Максимум комфорта. Идеально для первого знакомства с промтуризмом.
+                    <b>Вердикт:</b> Самый комфортный вариант для первого знакомства с индустриальной эстетикой.
+                </div>
+                <div class="city-extras">
+                    <h4>В городе кроме завода:</h4>
+                    <ul>
+                        <li>Арт-охота за муралами мировых звезд стрит-арта.</li>
+                        <li>Прогулки по лучшим набережным региона.</li>
+                        <li>Посещение усадьбы Баташевых.</li>
+                    </ul>
                 </div>
             </div>
             <div class="plant-media">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2315.688176884844!2d42.179377!3d55.321865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414b4af2f2003c23%3A0x4a21d09dd9a828cb!2z0JLQu9C60YHR0L3RgdC60LjQuSDQvNC10YLQsNC70LvRg9GA0LPQuNGH0LXRgdC60LjQuSDQt9Cw0LLQvtC0!5e0!3m2!1sru!2sru!4v1710000000000!5m2!1sru!2sru"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2315.659918231267!2d42.16911637684666!3d55.32189687333037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41492a92f200de03%3A0x4a21d09dd9a808cb!2z0JLQu9C60YHRg9C90YHQutC40Lkg0LzQtdGC0LDQu9C70YPRgNCz0LjRh9C10YHQutC40Lkg0LfQsNCy0L7QtA!5e0!3m2!1sru!2sru!4v1710672000000!5m2!1sru!2sru"></iframe>
             </div>
-        </div>
-        <div class="plant-gallery container">
-            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800" alt="Цех завода">
-            <img src="https://images.unsplash.com/photo-1565611093153-73d744837482?q=80&w=800" alt="Индустриальное искусство">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" alt="Современные технологии">
         </div>
     </div>
 
     <div id="mmk" class="plant-block">
         <div class="plant-grid">
             <div class="plant-media">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.123456789!2d59.043!3d53.421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43d525ca528bc413%3A0x19ca42410f4357b6!2z0JzQnNCa!5e0!3m2!1sru!2sru!4v1710000000000!5m2!1sru!2sru"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2402.1028373303666!3d53.42168347999434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43d2258a27ee9bc3%3A0xc19172442e4727b7!2z0JzQsNCz0L3QuNGC0L7Qs9C-0YDRgdC60LjQuCDQvNC10YLQsNC70YPRgNCz0LjRh9C10YHQutC40Lkg0LrQvtC80LHQuNC90LDRgg!5e0!3m2!1sru!2sru!4v1710672100000!5m2!1sru!2sru"></iframe>
             </div>
             <div class="plant-content">
                 <h2>ММК МАГНИТОГОРСК</h2>
-                <p><b>Логистика:</b> Самолет из Москвы. Полет в самое сердце металлургии.</p>
+                <p><b>Логистика из Москвы:</b> Прямой перелет (2.5ч). Комбинат — это город в городе с собственным транспортом и масштабами.</p>
                 <div class="logistics-box">
-                    <b>Вердикт:</b> Суровая мощь. Для тех, кто хочет увидеть рождение металла в огне.
+                    <b>Вердикт:</b> Поездка для тех, кто хочет увидеть «настоящую сталь» и готов к серьезному масштабу.
+                </div>
+                <div class="city-extras">
+                    <h4>В городе кроме завода:</h4>
+                    <ul>
+                        <li>Памятник «Тыл — фронту».</li>
+                        <li>Современный мультипарк «Притяжение».</li>
+                        <li>Горнолыжные центры Банное и Абзаково в часе езды.</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div class="plant-gallery container">
-            <img src="https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?q=80&w=800" alt="Доменная печь">
-            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800" alt="Раскаленный металл">
-            <img src="https://images.unsplash.com/photo-1444492417251-9c839d058ea2?q=80&w=800" alt="Масштабы ММК">
         </div>
     </div>
 
@@ -200,26 +179,29 @@
         <div class="plant-grid">
             <div class="plant-content">
                 <h2>ЕВРАЗ НТМК</h2>
-                <p><b>Логистика:</b> Самолет до Екатеринбурга + Ласточка. Путь через историю.</p>
+                <p><b>Логистика из Москвы:</b> Перелет до Екатеринбурга + скоростная «Ласточка». Удобный маршрут по ключевым точкам Урала.</p>
                 <div class="logistics-box">
-                    <b>Вердикт:</b> Образовательный трип. Погружение в историю инженерии России.
+                    <b>Вердикт:</b> Лучший выбор для глубокого погружения в историю техники и промышленную архитектуру.
+                </div>
+                <div class="city-extras">
+                    <h4>В городе кроме завода:</h4>
+                    <ul>
+                        <li>Единственный в мире старый завод-музей.</li>
+                        <li>Видовая площадка на Лисьей горе.</li>
+                        <li>Музей подносного промысла.</li>
+                    </ul>
                 </div>
             </div>
             <div class="plant-media">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2165.789!2d59.954!3d57.914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43eb64f5f5f5f5f5%3A0x5f5f5f5f5f5f5f5f!2z0JXQktCg0JDQlyDQndCi0JzQmg!5e0!3m2!1sru!2sru!4v1710000000000!5m2!1sru!2sru"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2179.378546123456!2d59.96789012345678!3d57.91234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43c2678901234567%3A0xabcdef0123456789!2z0JXQktCg0JDQlyDQndCi0JzQmg!5e0!3m2!1sru!2sru!4v1710672200000!5m2!1sru!2sru"></iframe>
             </div>
-        </div>
-        <div class="plant-gallery container">
-            <img src="https://images.unsplash.com/photo-1565624939567-8c098f8dd96c?q=80&w=800" alt="Старая индустрия">
-            <img src="https://images.unsplash.com/photo-1516937622178-74558372e3b8?q=80&w=800" alt="Завод-музей">
-            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=800" alt="Современная домна">
         </div>
     </div>
 
 </div>
 
 <footer style="padding: 40px; text-align: center; color: var(--text-dim); border-top: 1px solid var(--border);">
-    <p>© 2026 Гайд по индустриальному туризму. Больше, чем просто экскурсия.</p>
+    <p>© 2026 Гайд по индустриальному туризму. Подготовлено для ценителей промышленной мощи.</p>
 </footer>
 
 </body>
